@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Dashboard - Employee Directory</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+  /* सुरुवातीला प्रोफाईल पेज लपवण्यासाठी */
+  #profile-view {
+    display: none;
+  }
+  #profile-view.active {
+    display: block;
+  }
+
+  /* Sheet Card Style Enhancement */
+.sheets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 15px;
+}
+/* Card Container */
+.sheet-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+/* Card Header Title */
+.sheet-card-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sheet-card-title i {
+  font-size: 1.4rem;
+  color: #10b981; /* Green Excel Icon */
+}
+
+.sheet-card-title h4 {
+  font-size: 0.95rem;
+  color: #1e293b;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Two Separate Buttons Container */
+.sheet-card-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Common Action Button Base */
+.btn-action {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+/* 1. View Sheet Data Button (Dark) */
+.btn-view-sheet {
+  background-color: #1e293b;
+  color: #ffffff;
+}
+
+.btn-view-sheet:hover {
+  background-color: #334155;
+}
+
+/* 2. Google Form Button (Orange) */
+.btn-open-form {
+  background-color: #e37b0d;
+  color: #ffffff !important;
+}
+
+.btn-open-form:hover {
+  background-color: #d9740b;
+}
+
+/* Disabled Form Button (If Form link is not present) */
+.btn-disabled {
+  background-color: #cbd5e1;
+  color: #64748b !important;
+  cursor: not-allowed;
+}
+</style>
+</head>
+<body>
+  <script>
+    if (sessionStorage.getItem('isLoggedIn') !== 'true') {
+      window.location.href = 'login.html';
+    }
+  </script>
+
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div>
+        <div class="sidebar-header">
+          <img src="LOGO.png" alt="Company Logo" class="logo" onerror="this.src='https://via.placeholder.com/180x50?text=Avaniysh+Interior'">
+        </div>
+        <nav class="sidebar-nav">
+          <ul>
+            <li>
+              <a href="index.html" class="nav-btn">
+                <i class="fa-solid fa-house"></i> <span>Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="employee.html" class="nav-btn active">
+                <i class="fa-solid fa-users"></i> <span>Employees</span>
+              </a>
+            </li>
+            <li>
+              <a href="systems.html">
+                <i class="fa-solid fa-gears"></i> <span>Systems</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Sign Out Button -->
+      <div class="sidebar-footer">
+        <button class="btn-logout" onclick="logout()">
+          <i class="fa-solid fa-right-from-bracket"></i> <span>Sign Out</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      
+      <!-- 1. Employee Listing View -->
+      <section id="employee-view" class="content-view active">
+        <header class="page-header flex-header">
+          <div>
+            <h1>Employee Directory</h1>
+            <div class="header-divider"></div>
+          </div>
+          <!-- Live Employee Search -->
+          <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="employee-search-input" placeholder="Search employee name or role...">
+          </div>
+        </header>
+
+        <div id="designation-groups-container">
+          <!-- Dynamic Employee Directory JavaScript द्वारे लोड होईल -->
+        </div>
+      </section>
+
+      <!-- 2. Employee Detailed Profile View -->
+      <section id="profile-view" class="content-view">
+        <button id="back-to-employees-btn" class="btn-secondary">
+          <i class="fa-solid fa-arrow-left"></i> Back to Employee List
+        </button>
+        
+        <div class="profile-card-header">
+          <img id="profile-img" src="https://via.placeholder.com/120" alt="Profile Image">
+          <div class="profile-details">
+            <h1 id="profile-name">Employee Name</h1>
+            <p><i class="fa-solid fa-briefcase"></i> <strong>Designation:</strong> <span id="profile-designation">-</span></p>
+            <p><i class="fa-solid fa-calendar-day"></i> <strong>Joining Date:</strong> <span id="profile-joining">-</span></p>
+            <p><i class="fa-solid fa-envelope"></i> <strong>Email ID:</strong> <span id="profile-email">-</span></p>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h2>Assigned Worksheets</h2>
+          <p class="section-subtitle">Click on any card below to view live data filtered for this employee.</p>
+          <div id="employee-sheets-grid" class="sheets-grid">
+            <!-- Sheet Cards JS द्वारे लोड होतील -->
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Sheet Data Viewer Modal -->
+  <div id="sheet-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <h2 id="modal-sheet-title">Sheet Data</h2>
+          <p id="modal-sheet-subtitle" class="subtitle"></p>
+        </div>
+        <button class="close-modal-btn" id="close-modal-x">&times;</button>
+      </div>
+
+      <!-- Live Search Inside Table Modal -->
+      <div class="modal-toolbar" id="modal-toolbar" style="display: none;">
+        <div class="search-box table-search">
+          <i class="fa-solid fa-filter"></i>
+          <input type="text" id="table-search-input" placeholder="Filter sheet data...">
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <div id="modal-loader" class="loader">
+          <p>Fetching filtered Google Sheet data...</p>
+        </div>
+        <div id="modal-table-container" class="table-responsive"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Employee Page लोड झाल्यावर डेटा रेंडर करण्यासाठी
+    document.addEventListener("DOMContentLoaded", function () {
+      // जर script.js मध्ये renderEmployees नावाचे फंक्शन असेल तर ते कॉल करा
+      if (typeof renderEmployees === 'function') {
+        renderEmployees();
+      } else if (typeof initEmployeePage === 'function') {
+        initEmployeePage();
+      }
+    });
+
+    function logout() {
+      sessionStorage.removeItem('isLoggedIn');
+      window.location.href = 'login.html';
+    }
+  </script>
+  
+</body>
+</html>

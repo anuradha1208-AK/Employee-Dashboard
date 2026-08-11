@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AISPL - Login</title>
+    <style>
+        
+        :root {
+            --primary-orange: #f3821a;
+            --primary-orange-hover: #d96f0f;
+            --dark-text: #1a1a1a;
+            --muted-text: #555555;
+            --border-color: #e2e8f0;
+            --bg-color: #f8f9fa;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 1rem;
+        }
+
+        .login-card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 420px;
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid var(--primary-orange);
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo-container img {
+            max-width: 260px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .login-header h2 {
+            font-size: 1.5rem;
+            color: var(--dark-text);
+            margin-bottom: 0.25rem;
+        }
+
+        .login-header p {
+            color: var(--muted-text);
+            font-size: 0.875rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--dark-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary-orange);
+            box-shadow: 0 0 0 3px rgba(243, 130, 26, 0.2);
+        }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--muted-text);
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .toggle-password:hover {
+            color: var(--dark-text);
+        }
+
+        .error-message {
+            background-color: #fde8e8;
+            color: #9b1c1c;
+            border: 1px solid #f8b4b4;
+            padding: 0.75rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            margin-bottom: 1.25rem;
+            display: none;
+            text-align: center;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 0.85rem;
+            background-color: var(--primary-orange);
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--primary-orange-hover);
+        }
+
+        .btn-submit:disabled {
+            background-color: #cbd5e1;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-card">
+        <!-- Logo Header -->
+        <div class="logo-container">
+            <img src="LOGO.png" alt="Avaniysh Interior Solutions Logo" onerror="this.style.display='none'">
+        </div>
+
+        <div class="login-header">
+            <h2>Login</h2>
+            <p>Please enter your credentials to access the dashboard</p>
+        </div>
+
+        <div id="errorMessage" class="error-message"></div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" required placeholder="Enter username" autocomplete="username">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="password-wrapper">
+                    <input type="password" id="password" required placeholder="••••••••" autocomplete="current-password">
+                    <button type="button" class="toggle-password" id="togglePassword">Show</button>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit" id="submitBtn">Sign In</button>
+        </form>
+    </div>
+
+   
+    <script>
+      const loginForm = document.getElementById('loginForm');
+const usernameInput = document.getElementById('username');
+const passwordInput = document.getElementById('password');
+const togglePasswordBtn = document.getElementById('togglePassword');
+const errorMessage = document.getElementById('errorMessage');
+const submitBtn = document.getElementById('submitBtn');
+
+togglePasswordBtn.addEventListener('click', () => {
+    const isPassword = passwordInput.type === 'password';
+    passwordInput.type = isPassword ? 'text' : 'password';
+    togglePasswordBtn.textContent = isPassword ? 'Hide' : 'Show';
+});
+
+loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    errorMessage.style.display = 'none';
+
+    const username = usernameInput.value.trim().toLowerCase();
+    const password = passwordInput.value.trim();
+
+    // Users Database with Display Names
+    const USERS_DB = {
+        'admin': { 
+            pass: 'Aispl@2026', 
+            role: 'admin', 
+            empId: 'admin',
+            name: 'Admin'
+        },
+        'akash': { 
+            pass: 'Akash@123', 
+            role: 'employee', 
+            empId: 'akash-r',
+            name: 'Akash Raut',
+            accessIds: ['akash-r', 'bhakti-b', 'sakshi-b']
+        },
+        'mahavir': { 
+            pass: 'Mahavir@123', 
+            role: 'employee',
+            empId: 'mahavir-c',
+            name: 'Mahavir Chabukswar',
+            accessIds: ['mahavir-c', 'sachin-m', 'shubham-p'] 
+        },
+        'sachin': { pass: 'Sachin@123', role: 'employee', empId: 'sachin-m', name: 'Sachin Maharana' },
+        'shubham': { pass: 'Shubham@123', role: 'employee', empId: 'shubham-p', name: 'Shubham Pawar' },
+        'saurav': { pass: 'Saurav@123', role: 'employee', empId: 'saurav-r', name: 'Saurav Rathod' },
+        'kiran': { pass: 'Kiran@123', role: 'employee', empId: 'kiran-c', name: 'Kiran Chabukswar' },
+        'bhakti': { pass: 'Bhakti@123', role: 'employee', empId: 'bhakti-b', name: 'Bhakti Bule' },
+        'sakshi': { pass: 'Sakshi@123', role: 'employee', empId: 'sakshi-b', name: 'Sakshi Makote' },
+        'namrata': { pass: 'Namrata@123', role: 'employee', empId: 'namrata-r', name: 'Namrata Raut' },
+        'anuradha': { pass: 'Anuradha@123', role: 'employee', empId: 'anuradha-s', name: 'Anuradha Bansode' },
+        'harshada': { pass: 'Harshada@123', role: 'employee', empId: 'harshada-s', name: 'Harshada Shirsale' },
+        'kiran h': { pass: 'Accounts@123', role: 'employee', empId: 'accounts-team', name: 'Kiran Hole' }
+    };
+
+    const user = USERS_DB[username];
+
+    if (user && user.pass === password) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Redirecting...';
+        
+        // Save User Info in Session
+        sessionStorage.setItem('isLoggedIn', 'true');
+        sessionStorage.setItem('loggedInUserRole', user.role);
+        sessionStorage.setItem('loggedInEmpId', user.empId);
+        sessionStorage.setItem('loggedInUserName', user.name); // Display Name Save केला
+
+        const allowedIds = user.accessIds || [user.empId];
+        sessionStorage.setItem('accessIds', JSON.stringify(allowedIds));
+
+        window.location.href = 'index.html'; 
+    } else {
+        showError('Invalid Username or Password!');
+    }
+});
+
+function showError(msg) {
+    errorMessage.textContent = msg;
+    errorMessage.style.display = 'block';
+}
+    </script>
+</body>
+</html>

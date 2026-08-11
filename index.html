@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Dashboard - Home</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <script>
+    if (sessionStorage.getItem('isLoggedIn') !== 'true') {
+      window.location.href = 'login.html';
+    }
+  </script>
+
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div>
+        <div class="sidebar-header">
+          <img src="LOGO.png" alt="Company Logo" class="logo" onerror="this.src='https://via.placeholder.com/180x50?text=Avaniysh+Interior'">
+        </div>
+        <nav class="sidebar-nav">
+          <ul>
+            <li>
+              <a href="index.html" class="nav-btn active">
+                <i class="fa-solid fa-house"></i> <span>Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="employee.html" class="nav-btn">
+                <i class="fa-solid fa-users"></i> <span>Employees</span>
+              </a>
+            </li>
+            <li>
+              <a href="systems.html">
+                <i class="fa-solid fa-gears"></i> <span>Systems</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Sign Out Button -->
+      <div class="sidebar-footer">
+        <button class="btn-logout" onclick="logout()">
+          <i class="fa-solid fa-right-from-bracket"></i> <span>Sign Out</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      
+      <!-- Home View -->
+      <section id="home-view" class="content-view active">
+        <header class="page-header">
+          <h1>Dashboard Overview</h1>
+          <div class="user-profile-badge">
+            Welcome, <strong id="logged-in-user-name">Guest</strong>!
+          </div>
+          <div class="header-divider"></div>
+        </header>
+
+        <!-- Metric Cards -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <i class="fa-solid fa-user-group"></i>
+            <div>
+              <h3>Total Employees</h3>
+              <p id="total-employees">11</p>
+            </div>
+          </div>
+          <div class="metric-card">
+            <i class="fa-solid fa-diagram-project"></i>
+            <div>
+              <h3>Active Projects</h3>
+              <p>8</p>
+            </div>
+          </div>
+          <div class="metric-card">
+            <i class="fa-solid fa-handshake"></i>
+            <div>
+              <h3>Esteemed Clients</h3>
+              <p>500+</p>
+            </div>
+          </div>
+          <div class="metric-card">
+            <i class="fa-solid fa-file-excel"></i>
+            <div>
+              <h3>Active Sheets</h3>
+              <p>37</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Active Projects Gallery -->
+        <div class="section-block">
+          <h2>Active Project Photos</h2>
+          <div class="gallery-grid">
+            <div class="gallery-card">
+              <img src="Projects Images/7.jpg" alt="Airtech Project Site, Goa" onerror="this.src='https://via.placeholder.com/300x160?text=Goa+Project'">
+              <span>Airtech Composite Material Pvt. Ltd.</span>
+            </div>
+            <div class="gallery-card">
+              <img src="Projects Images/025.jpg" alt="PCET College, Akurdi" onerror="this.src='https://via.placeholder.com/300x160?text=PCET+Akurdi'">
+              <span>PCET College, Akurdi</span>
+            </div>
+            <div class="gallery-card">
+              <img src="Projects Images/36.jpg" alt="AirLife Gases, Chakan" onerror="this.src='https://via.placeholder.com/300x160?text=AirLife+Chakan'">
+              <span>AirLife Gases Pvt. Ltd.</span>
+            </div>
+            <div class="gallery-card">
+              <img src="Projects Images/60.jpg" alt="PCU Dining Hall, Sate" onerror="this.src='https://via.placeholder.com/300x160?text=PCU+Sate'">
+              <span>PCU Dining Hall, Sate</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Clients -->
+        <div class="section-block">
+          <h2><i class="fa-solid fa-building-user"></i> Esteemed Clients</h2>
+          <div class="client-grid">
+            <div class="client-card"><span>Airtech Composite Material Pvt. Ltd.</span></div>
+            <div class="client-card"><span>AirLife Gases Pvt. Ltd.</span></div>
+            <div class="client-card"><span>PCET Akurdi</span></div>
+            <div class="client-card"><span>PCU University</span></div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    function logout() {
+      sessionStorage.removeItem('isLoggedIn');
+      window.location.href = 'login.html';
+    }
+  </script>
+</body>
+</html>
