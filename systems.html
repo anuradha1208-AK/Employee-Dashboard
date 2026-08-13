@@ -270,21 +270,148 @@
       color: #ffffff;
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      .sidebar { 
-        width: 100%; 
-        height: auto; 
-        position: relative; 
-      }
-      .main-content { 
-        margin-left: 0; 
-        max-width: 100vw;
-      }
-      .app-container { 
-        flex-direction: column; 
-      }
-    }
+ 
+   
+@media (max-width: 768px) {
+  
+  .app-container {
+    flex-direction: column;
+  }
+
+ 
+  .sidebar {
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .sidebar-header {
+    padding: 12px 20px;
+  }
+
+  .sidebar-nav ul {
+    display: flex;
+    overflow-x: auto;
+
+    padding: 8px 10px;
+    gap: 5px;
+  }
+
+  .sidebar-nav a, 
+  .nav-btn {
+    padding: 8px 14px;
+    white-space: nowrap;
+    font-size: 0.88rem;
+    border-radius: 6px;
+  }
+
+  
+  .sidebar-nav a::before,
+  .nav-btn::before {
+    display: none;
+  }
+
+  .sidebar-footer {
+    padding: 0.8rem 1rem;
+  }
+
+  
+  .main-content {
+    max-width: 100%;
+    width: 100%;
+    padding: 15px;
+  }
+
+ 
+  .flex-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-box, 
+  .search-box input {
+    width: 100%;
+  }
+
+  .search-box input:focus {
+    width: 100%;
+  }
+
+
+  .metrics-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+  }
+
+  .metric-card {
+    padding: 15px;
+    gap: 12px;
+  }
+
+  .metric-card i {
+    font-size: 1.6rem;
+  }
+
+  .metric-card p {
+    font-size: 1.3rem;
+  }
+
+ 
+  .profile-card-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 15px;
+    gap: 15px;
+  }
+
+  
+  .sheet-tabs {
+    overflow-x: auto;
+    padding-bottom: 8px;
+    white-space: nowrap;
+  }
+
+  .tab-btn {
+    flex-shrink: 0;
+  }
+
+  /* Modals */
+  .modal-content {
+    width: 95%;
+    padding: 18px;
+    max-height: 90vh;
+  }
+
+  .placeholder-box {
+    padding: 30px 15px;
+  }
+}
+
+/* Small Mobile Screens (Max-Width: 480px) */
+@media (max-width: 480px) {
+  /* Enforce single column for cards on very small displays */
+  .metrics-grid,
+  .gallery-grid,
+  .client-grid,
+  .cards-grid,
+  .sheets-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .employee-card img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .custom-data-table,
+  .custom-table {
+    font-size: 0.78rem;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -312,7 +439,7 @@
             </li>
             <li>
               <a href="employee.html">
-                <i class="fa-solid fa-users"></i> <span>Employees</span>
+                <i class="fa-solid fa-users"></i> <span>Teams</span>
               </a>
             </li>
             
@@ -377,6 +504,7 @@
           </a>
         </div>
 
+
         <!-- 2. Airtech Dashboard Card -->
         <div class="system-card">
           <div class="system-card-header">
@@ -385,7 +513,7 @@
             </div>
             <div class="system-card-info">
               <h3>Airtech Dashboard</h3>
-              <p>Project Management System (PMS)</p>
+              <p>Airtech Progress dashboard</p>
             </div>
           </div>
           <a href="https://script.google.com/a/macros/avaniyshinterior.com/s/AKfycbxBqPiof-i02R7xg0VxjjLcl99fBL6MQZCfG0rUufBnBhAEYtJ2QIUKvrIkzFQwOIo/exec?page=pms" target="_blank" class="btn-open-system">
@@ -401,7 +529,7 @@
             </div>
             <div class="system-card-info">
               <h3>Airlife Dashboard</h3>
-              <p>Airlife Gases Management System</p>
+              <p>Airlife Gases Progress dashboard</p>
             </div>
           </div>
           <a href="https://script.google.com/a/macros/avaniyshinterior.com/s/AKfycbxoo7jVxrxKUBRtqy05_b0T0EK676VBzEPpiK7ntxkTOO_LZdrN4gbEcIHECXni7wq_tg/exec" target="_blank" class="btn-open-system">
