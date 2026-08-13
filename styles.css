@@ -821,3 +821,35 @@ body {
 
 
 
+/* १. आयकॉनचा बॅकग्राउंड आणि आयकॉनचा रंग (निळ्याऐवजी फिकट व गडद ऑरेंज) */
+.system-card-icon {
+  width: 44px;
+  height: 44px;
+  background-color: #fff7ed; /* 👈 फिकट ऑरेंज बॅकग्राउंड (जुना: #e0f2fe) */
+  color: #ea580c;            /* 👈 ऑरेंज आयकॉन (जुना: #0284c7) */
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+/* २. बटणाचा रंग ऑरेंज करणे */
+.btn-open-system {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #e37b0d; /* 👈 ऑरेंज रंग (जुना निळा: #0284c7) */
+  color: #ffffff !important;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+/* ३. माऊस नेल्यावर (Hover) थोडा गडद ऑरेंज दिसेल */
+.btn-open-system:hover {
+  background-color: #d9740b; /* 👈 (जुना: #0369a1) */
+}
