@@ -31,11 +31,11 @@
             </li>
             <li>
               <a href="employee.html" class="nav-btn">
-                <i class="fa-solid fa-users"></i> <span>Employees</span>
+                <i class="fa-solid fa-users"></i> <span>Teams</span>
               </a>
             </li>
             <li>
-              <a href="systems.html">
+              <a href="systems.html" class="nav-btn">
                 <i class="fa-solid fa-gears"></i> <span>Systems</span>
               </a>
             </li>
@@ -56,20 +56,27 @@
       
       <!-- Home View -->
       <section id="home-view" class="content-view active">
-        <header class="page-header">
-          <h1>Dashboard Overview</h1>
-          <div class="user-profile-badge">
-            Welcome, <strong id="logged-in-user-name">Guest</strong>!
+        <header class="page-header flex-header">
+          <div>
+            <h1>Dashboard Overview</h1>
+            <div class="user-profile-badge">
+              Welcome, <strong id="logged-in-user-name">Guest</strong>!
+            </div>
           </div>
-          <div class="header-divider"></div>
+          <!-- New: Date Display Widget -->
+          <div class="date-widget" style="font-weight: 600; color: var(--text-muted);">
+            <i class="fa-solid fa-calendar-day" style="color: var(--primary-orange);"></i> 
+            <span id="current-date-display">Today</span>
+          </div>
         </header>
+        <div class="header-divider"></div>
 
         <!-- Metric Cards -->
-        <div class="metrics-grid">
+        <div class="metrics-grid" style="margin-top: 20px;">
           <div class="metric-card">
             <i class="fa-solid fa-user-group"></i>
             <div>
-              <h3>Total Employees</h3>
+              <h3>Total Team</h3>
               <p id="total-employees">11</p>
             </div>
           </div>
@@ -95,6 +102,37 @@
             </div>
           </div>
         </div>
+<!-- 
+        
+        <div class="section-block" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+          
+          Notice Board Card 
+          <div class="metric-card" style="border-top: 4px solid #3b82f6; flex-direction: column; align-items: flex-start;">
+            <h3 style="color: var(--text-dark); font-size: 1.1rem;">
+              <i class="fa-solid fa-bullhorn" style="color: #3b82f6; font-size: 1.2rem;"></i> Company Announcements
+            </h3>
+            <ul style="margin-top: 10px; padding-left: 20px; color: var(--text-muted); font-size: 0.9rem;">
+              <li>Please submit weekly site reports by Saturday evening.</li>
+              <li>Safety kit inspection scheduled for all site managers.</li>
+            </ul>
+          </div>
+
+      
+          <div class="metric-card" style="border-top: 4px solid #10b981; flex-direction: column; align-items: flex-start;">
+            <h3 style="color: var(--text-dark); font-size: 1.1rem;">
+              <i class="fa-solid fa-bolt" style="color: #10b981; font-size: 1.2rem;"></i> Quick Actions
+            </h3>
+            <div style="display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap;">
+              <a href="employee.html" class="btn-secondary" style="text-decoration: none; font-size: 0.8rem;">
+                <i class="fa-solid fa-plus"></i> Submit Report
+              </a>
+              <a href="systems.html" class="btn-secondary" style="text-decoration: none; font-size: 0.8rem; background: var(--primary-orange);">
+                <i class="fa-solid fa-magnifying-glass"></i> View Systems
+              </a>
+            </div>
+          </div>
+
+        </div> -->
 
         <!-- Active Projects Gallery -->
         <div class="section-block">
@@ -120,7 +158,7 @@
         </div>
 
         <!-- Clients -->
-        <div class="section-block">
+        <!-- <div class="section-block">
           <h2><i class="fa-solid fa-building-user"></i> Esteemed Clients</h2>
           <div class="client-grid">
             <div class="client-card"><span>Airtech Composite Material Pvt. Ltd.</span></div>
@@ -128,7 +166,7 @@
             <div class="client-card"><span>PCET Akurdi</span></div>
             <div class="client-card"><span>PCU University</span></div>
           </div>
-        </div>
+        </div> -->
       </section>
 
     </main>
@@ -136,6 +174,15 @@
 
   <script src="script.js"></script>
   <script>
+    // Set Current Date Automatically
+    document.addEventListener('DOMContentLoaded', () => {
+      const dateElem = document.getElementById('current-date-display');
+      if (dateElem) {
+        const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+        dateElem.innerText = new Date().toLocaleDateString('en-US', options);
+      }
+    });
+
     function logout() {
       sessionStorage.removeItem('isLoggedIn');
       window.location.href = 'login.html';
