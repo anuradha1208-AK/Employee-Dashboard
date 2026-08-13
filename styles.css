@@ -677,3 +677,147 @@ body {
     .btn-logout:active {
       transform: scale(0.98);
     }
+
+
+@media (max-width: 768px) {
+  
+  .app-container {
+    flex-direction: column;
+  }
+
+ 
+  .sidebar {
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .sidebar-header {
+    padding: 12px 20px;
+  }
+
+  .sidebar-nav ul {
+    display: flex;
+    overflow-x: auto;
+
+    padding: 8px 10px;
+    gap: 5px;
+  }
+
+  .sidebar-nav a, 
+  .nav-btn {
+    padding: 8px 14px;
+    white-space: nowrap;
+    font-size: 0.88rem;
+    border-radius: 6px;
+  }
+
+  /* Hide vertical hover indicator line on top navigation view */
+  .sidebar-nav a::before,
+  .nav-btn::before {
+    display: none;
+  }
+
+  .sidebar-footer {
+    padding: 0.8rem 1rem;
+  }
+
+  /* Main Content Adjustments */
+  .main-content {
+    max-width: 100%;
+    width: 100%;
+    padding: 15px;
+  }
+
+  /* Header & Search Bar */
+  .flex-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-box, 
+  .search-box input {
+    width: 100%;
+  }
+
+  .search-box input:focus {
+    width: 100%;
+  }
+
+  /* Metrics Grid Tweaks */
+  .metrics-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+  }
+
+  .metric-card {
+    padding: 15px;
+    gap: 12px;
+  }
+
+  .metric-card i {
+    font-size: 1.6rem;
+  }
+
+  .metric-card p {
+    font-size: 1.3rem;
+  }
+
+  /* Detailed Profile Header */
+  .profile-card-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 15px;
+    gap: 15px;
+  }
+
+  /* Scrollable Sheet Tabs on Mobile */
+  .sheet-tabs {
+    overflow-x: auto;
+    padding-bottom: 8px;
+    white-space: nowrap;
+  }
+
+  .tab-btn {
+    flex-shrink: 0;
+  }
+
+  /* Modals */
+  .modal-content {
+    width: 95%;
+    padding: 18px;
+    max-height: 90vh;
+  }
+
+  .placeholder-box {
+    padding: 30px 15px;
+  }
+}
+
+/* Small Mobile Screens (Max-Width: 480px) */
+@media (max-width: 480px) {
+  /* Enforce single column for cards on very small displays */
+  .metrics-grid,
+  .gallery-grid,
+  .client-grid,
+  .cards-grid,
+  .sheets-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .employee-card img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .custom-data-table,
+  .custom-table {
+    font-size: 0.78rem;
+  }
+}
+
+
+
