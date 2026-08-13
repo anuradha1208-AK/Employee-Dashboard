@@ -7,15 +7,28 @@ const employeesData = [
     joiningDate: '18/08/2015',
     email: 'akash@avaniyshinterior.com',
     photo: 'https://lh3.googleusercontent.com/d/1J0fEgUfvhprW7toPDCCWNswE___LjMge',
-    
+    dashboards: [
+    {
+      title: 'Airtech Progress Dashboard',
+      url: 'https://script.google.com/a/macros/avaniyshinterior.com/s/AKfycbxBqPiof-i02R7xg0VxjjLcl99fBL6MQZCfG0rUufBnBhAEYtJ2QIUKvrIkzFQwOIo/exec?page=pms'
+    },
+    {
+      title: 'Airtech Material Checklist',
+      url: 'https://script.google.com/macros/s/AKfycbyj1PuG5FaR1jtF-BA_DUe2klBDSWKDWYavXVAji0v7V7gY5aXYvk5hR7UF6QBWSQYsfw/exec'
+    },
+    {
+      title: 'Airtech Schedular',
+      url: 'https://script.google.com/a/macros/avaniyshinterior.com/s/AKfycbxBqPiof-i02R7xg0VxjjLcl99fBL6MQZCfG0rUufBnBhAEYtJ2QIUKvrIkzFQwOIo/exec?page=fitout'
+    }
+  ],
     sheets: [
       
       { name: 'Project Visit', formUrl:'https://forms.gle/ZRpDTA4KUkGnbwtX8', docId: '11TLkJxGV3EFz4ZdVqKpuX3O-8FV4TrlMIYjxyAZ0lqY', gid: '2045538987', selectedColumns: ['Date', 'Project Site Visitor', 'Project Name', 'Location', 'Visit Purpose', 'Observation'] },
       { name: 'Office Expenses',formUrl:'https://docs.google.com/forms/d/e/1FAIpQLSeFG1ZBY4mstlGPDpcNhUb9vi2WiJGBr3aG2cuTtYqPNXf4Nw/viewform?usp=header', docId: '1N2DF6vzSoJcIxwL2makablsGtDlMB-rxhcWT3_VLHBY', gid: '1456510666', selectedColumns: ['Date', 'Name', 'Paid to', 'Amount', 'Reason', 'Categories'] },
       { name: 'Site Expenses', formUrl:'https://forms.gle/9uuXgx6oF3okLmxb7',docId: '13Vo3YIrbPT06a4ClN-BS-eO1DOCSNzo5dnn-XfO0Tds', gid: '1142344274', selectedColumns: ['Date', 'Name', 'Project Name', 'Paid to', 'Amount', 'Reason'] },
       { name: 'Project Specification Changes',formUrl:'https://forms.gle/2Zew9NZYBjbF32bE6', docId: '1oOS8lE1JviRkNhbM7FP_0VUxPV9FZgMU70t_j0A_N2A', gid: '944341180', selectedColumns: ['Date', 'Project Name', 'Specific Changes / Additional Work', 'Cost Change (If Any)', 'Requested / Instructed By', 'Approval Status'] },
-             { name: 'Delegation Score PH', docId: '1JsKyve_bNF80c-D-jvLAmFGfDKE6xLzYBtiFep0UXlc', gid: '1184708924', selectedColumns: ['Name', 'Task', 'First Date', 'Revision 1','Revision 2', 'Total Revision','Status','Actual Completion Date'] },
-{ name: 'Checklist', docId: '1m_P5_eP9FvD9eaYvanmLlV833cscTvk2xJk_c39cbZw', gid: '2092959791', selectedColumns: ['Task', 'Doer', 'Planned', 'Actual', 'Status'] },
+      { name: 'Delegation Score PH', docId: '1JsKyve_bNF80c-D-jvLAmFGfDKE6xLzYBtiFep0UXlc', gid: '1184708924', selectedColumns: ['Name', 'Task', 'First Date', 'Revision 1','Revision 2', 'Total Revision','Status','Actual Completion Date'] },
+      { name: 'Checklist', docId: '1m_P5_eP9FvD9eaYvanmLlV833cscTvk2xJk_c39cbZw', gid: '2092959791', selectedColumns: ['Task', 'Doer', 'Planned', 'Actual', 'Status'] },
       { name: 'Daily Video Call', docId: '16wXUF_fWDvbdBZf63sZiIU0hCkI-qjnFLGgFui9t4yY', gid: '2092959791', selectedColumns: ['Name', 'Task', 'Planned', 'Actual', 'Status'] },
      
     ]
@@ -27,16 +40,22 @@ const employeesData = [
     joiningDate: '01/06/2022',
     email: 'mahavir@avaniyshinterior.com',
     photo: 'https://lh3.googleusercontent.com/d/1-fJug9Xn7MBNGbl7M57Ap4YL_SFvzExN',
-    
+    dashboards: [
+    {
+      title: 'Airlife Gases Pvt. Ltd. Progress Dashboard',
+      url: 'https://script.google.com/a/macros/avaniyshinterior.com/s/AKfycbxoo7jVxrxKUBRtqy05_b0T0EK676VBzEPpiK7ntxkTOO_LZdrN4gbEcIHECXni7wq_tg/exec'
+    }
+   
+  ],
     sheets: [
-      { name: 'Project Visit',formUrl:'https://forms.gle/ZRpDTA4KUkGnbwtX8', docId: '11TLkJxGV3EFz4ZdVqKpuX3O-8FV4TrlMIYjxyAZ0lqY', gid: '2045538987', selectedColumns: ['Date', 'Project Site Visitor', 'Project Name', 'Location', 'Visit Purpose', 'Observation'] },
-      { name: 'Office Expenses',formUrl:'https://docs.google.com/forms/d/e/1FAIpQLSeFG1ZBY4mstlGPDpcNhUb9vi2WiJGBr3aG2cuTtYqPNXf4Nw/viewform?usp=header', docId: '1N2DF6vzSoJcIxwL2makablsGtDlMB-rxhcWT3_VLHBY', gid: '1456510666', selectedColumns: ['Date', 'Paid to', 'Amount', 'Reason', 'Categories'] },
+     { name: 'Project Visit', formUrl:'https://forms.gle/ZRpDTA4KUkGnbwtX8', docId: '11TLkJxGV3EFz4ZdVqKpuX3O-8FV4TrlMIYjxyAZ0lqY', gid: '2045538987', selectedColumns: ['Date', 'Project Site Visitor', 'Project Name', 'Location', 'Visit Purpose', 'Observation'] },
+      { name: 'Office Expenses',formUrl:'https://docs.google.com/forms/d/e/1FAIpQLSeFG1ZBY4mstlGPDpcNhUb9vi2WiJGBr3aG2cuTtYqPNXf4Nw/viewform?usp=header', docId: '1N2DF6vzSoJcIxwL2makablsGtDlMB-rxhcWT3_VLHBY', gid: '1456510666', selectedColumns: ['Date', 'Name', 'Paid to', 'Amount', 'Reason', 'Categories'] },
+      { name: 'Site Expenses', formUrl:'https://forms.gle/9uuXgx6oF3okLmxb7',docId: '13Vo3YIrbPT06a4ClN-BS-eO1DOCSNzo5dnn-XfO0Tds', gid: '1142344274', selectedColumns: ['Date', 'Name', 'Project Name', 'Paid to', 'Amount', 'Reason'] },
+      { name: 'Project Specification Changes',formUrl:'https://forms.gle/2Zew9NZYBjbF32bE6', docId: '1oOS8lE1JviRkNhbM7FP_0VUxPV9FZgMU70t_j0A_N2A', gid: '944341180', selectedColumns: ['Date', 'Project Name', 'Specific Changes / Additional Work', 'Cost Change (If Any)', 'Requested / Instructed By', 'Approval Status'] },
       { name: 'Delegation Score PH', docId: '1JsKyve_bNF80c-D-jvLAmFGfDKE6xLzYBtiFep0UXlc', gid: '1184708924', selectedColumns: ['Name', 'Task', 'First Date', 'Revision 1','Revision 2', 'Total Revision','Status','Actual Completion Date'] },
-      { name: 'Site Expenses',formUrl:'https://forms.gle/9uuXgx6oF3okLmxb7', docId: '13Vo3YIrbPT06a4ClN-BS-eO1DOCSNzo5dnn-XfO0Tds', gid: '1142344274', selectedColumns: ['Date', 'Name', 'Project Name', 'Paid to', 'Amount', 'Reason'] },
       { name: 'Checklist', docId: '1m_P5_eP9FvD9eaYvanmLlV833cscTvk2xJk_c39cbZw', gid: '2092959791', selectedColumns: ['Task', 'Doer', 'Planned', 'Actual', 'Status'] },
       { name: 'Daily Video Call', docId: '16wXUF_fWDvbdBZf63sZiIU0hCkI-qjnFLGgFui9t4yY', gid: '2092959791', selectedColumns: ['Name', 'Task', 'Planned', 'Actual', 'Status'] },
-      { name: 'Project Specification Changes',formUrl:'https://forms.gle/2Zew9NZYBjbF32bE6', docId: '1oOS8lE1JviRkNhbM7FP_0VUxPV9FZgMU70t_j0A_N2A', gid: '944341180', selectedColumns: ['Date', 'Project Name', 'Specific Changes / Additional Work', 'Cost Change (If Any)', 'Requested / Instructed By', 'Approval Status'] }
-    ]
+      ]
   },
   {
     id: 'sachin-m',
@@ -45,6 +64,12 @@ const employeesData = [
     joiningDate: '02/01/2024',
     email: 'projects1@avaniyshinterior.com',
     photo: 'https://lh3.googleusercontent.com/d/18zLmgSBmGprsf970P_iaZK-k_2UD0R-8',
+    dashboards: [
+    {
+      title: 'Airtech Progress Dashboard',
+      url: 'https://script.google.com/a/macros/avaniyshinterior.com/s/AKfycbxBqPiof-i02R7xg0VxjjLcl99fBL6MQZCfG0rUufBnBhAEYtJ2QIUKvrIkzFQwOIo/exec?page=pms'
+    }
+  ],
     sheets: [
       { name: 'Daily Report',formUrl:'https://forms.gle/YUV27rV5kPXKyn799', docId: '1mrjfYpGMSMY-Em7Y4O4m9JZgfED0gdvbdPBD9qscgcM', gid: '799922129', selectedColumns: ['Date', 'Project Name', 'Location', 'In - Time ', 'Out- Time', 'Have you done site visit?','Described Days Activities (Mentioned by Points) In Office','Described Days Activities (Mentioned by Points) In Site'] },
       { name: 'Daily Video Call', docId: '16wXUF_fWDvbdBZf63sZiIU0hCkI-qjnFLGgFui9t4yY', gid: '2092959791', selectedColumns: ['Name', 'Task', 'Planned', 'Actual', 'Status'] },
@@ -69,6 +94,13 @@ const employeesData = [
     joiningDate: '01/10/2022',
     email: 'projects1@avaniyshinterior.com',
     photo: 'https://lh3.googleusercontent.com/d/1vUHQd3U07-6NieBDnLPeDlTKkseCbGxd',
+      dashboards: [
+    {
+      title: 'Airlife Gases Pvt. Ltd. Progress Dashboard',
+      url: 'https://script.google.com/a/macros/avaniyshinterior.com/s/AKfycbxoo7jVxrxKUBRtqy05_b0T0EK676VBzEPpiK7ntxkTOO_LZdrN4gbEcIHECXni7wq_tg/exec'
+    }
+   
+  ],
     sheets: [
       { name: 'Daily Report',formUrl:'https://forms.gle/YUV27rV5kPXKyn799',  docId: '1mrjfYpGMSMY-Em7Y4O4m9JZgfED0gdvbdPBD9qscgcM', gid: '799922129', selectedColumns: ['Date', 'Project Name', 'Location', 'In - Time ', 'Out- Time', 'Have you done site visit?','Described Days Activities (Mentioned by Points) In Office','Described Days Activities (Mentioned by Points) In Site'] },
       { name: 'Daily Video Call', docId: '16wXUF_fWDvbdBZf63sZiIU0hCkI-qjnFLGgFui9t4yY', gid: '2092959791', selectedColumns: ['Name', 'Task', 'Planned', 'Actual', 'Status'] },
@@ -396,35 +428,63 @@ function openEmployeeProfile(emp) {
     imgElem.onerror = () => { imgElem.src = 'https://via.placeholder.com/120?text=User'; };
   }
 
-  // 📊 SPECIAL DASHBOARD BUTTON CARD (कर्मचाऱ्याच्या नावाशिवाय)
-  const dashContainer = document.getElementById('profile-dashboard-container');
-  if (dashContainer) {
-    if (emp.dashboard) {
-      dashContainer.innerHTML = `
-        <div class="system-card">
+ 
+// 📊 SPECIAL DASHBOARD BUTTON CARD (कस्टमाइज्ड नावासह)
+const dashContainer = document.getElementById('profile-dashboard-container');
+
+if (dashContainer) {
+  dashContainer.innerHTML = ''; // जुना डेटा साफ करा
+
+  if (emp.dashboards && emp.dashboards.length > 0) {
+    let html = '<div class="dashboards-grid" style="display: flex; gap: 15px; flex-wrap: wrap;">';
+    
+    emp.dashboards.forEach(dash => {
+      html += `
+        <div class="system-card" style="flex: 1; min-width: 280px; margin-bottom: 15px;">
           <div class="system-card-header">
-            <div class="system-card-icon">
+            <!-- 🧡 आयकॉन बॉक्स ऑरेंज केला -->
+            <div class="system-card-icon" style="background-color: #fff7ed; color: #ea580c;">
               <i class="fa-solid fa-chart-line"></i>
             </div>
             <div class="system-card-info">
-              <!-- 👇 इथे तुम्ही तुमचे हवे ते नाव (Custom Naming) लिहू शकता -->
-              <h3>Dashboard</h3>
-              <p>Project Management System</p>
+              <h3>${escapeHtml(dash.title || 'Dashboard')}</h3>
+              
             </div>
           </div>
-          <a href="${escapeHtml(emp.dashboard)}" target="_blank" class="btn-open-system">
+          <!-- 🧡 बटण ऑरेंज केले -->
+          <a href="${escapeHtml(dash.url)}" target="_blank" class="btn-open-system" style="background-color: #e37b0d;">
             <span>Open Dashboard</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
         </div>
       `;
-      dashContainer.style.display = 'block';
-    } else {
-      dashContainer.innerHTML = '';
-      dashContainer.style.display = 'none';
-    }
-  }
+    });
 
-  // 📄 WORKsheets GRID (मूळ "View Data" आणि "Open Form" बटन्ससह)
+    html += '</div>';
+    dashContainer.innerHTML = html;
+    dashContainer.style.display = 'block';
+
+  } else if (emp.dashboard) {
+    dashContainer.innerHTML = `
+      <div class="system-card">
+        <div class="system-card-header">
+          <div class="system-card-icon" style="background-color: #fff7ed; color: #ea580c;">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <div class="system-card-info">
+            <h3>${escapeHtml(emp.dashboardTitle || 'Dashboard')}</h3>
+            <p>Project Management System</p>
+          </div>
+        </div>
+        <a href="${escapeHtml(emp.dashboard)}" target="_blank" class="btn-open-system" style="background-color: #e37b0d;">
+          <span>Open Dashboard</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+    `;
+    dashContainer.style.display = 'block';
+  } else {
+    dashContainer.style.display = 'none';
+  }
+}
   const sheetsGrid = document.getElementById('employee-sheets-grid');
   if (sheetsGrid) {
     sheetsGrid.innerHTML = '';
