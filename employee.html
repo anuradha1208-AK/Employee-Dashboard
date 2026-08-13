@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Company Dashboard - Employee Directory</title>
+  <title>Company Dashboard</title>
   <link rel="stylesheet" href="styles.css">
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -16,95 +16,153 @@
     display: block;
   }
 
-  /* Sheet Card Style Enhancement */
-.sheets-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 16px;
-  margin-top: 15px;
-}
-/* Card Container */
-.sheet-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 14px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
-}
+  /* ==================== SPECIAL DASHBOARD CARD STYLES ==================== */
+  .system-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 18px;
+    max-width: 380px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
 
-/* Card Header Title */
-.sheet-card-title {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
+  .system-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
 
-.sheet-card-title i {
-  font-size: 1.4rem;
-  color: #10b981; /* Green Excel Icon */
-}
+  .system-card-icon {
+    width: 44px;
+    height: 44px;
+    background-color: #e0f2fe;
+    color: #0284c7;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+  }
 
-.sheet-card-title h4 {
-  font-size: 0.95rem;
-  color: #1e293b;
-  margin: 0;
-  font-weight: 600;
-}
+  .system-card-info h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: #1e293b;
+    font-weight: 600;
+  }
 
-/* Two Separate Buttons Container */
-.sheet-card-actions {
-  display: flex;
-  gap: 8px;
-}
+  .system-card-info p {
+    margin: 2px 0 0 0;
+    font-size: 0.8rem;
+    color: #64748b;
+  }
 
-/* Common Action Button Base */
-.btn-action {
-  flex: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 8px 10px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  border-radius: 6px;
-  text-decoration: none;
-  cursor: pointer;
-  border: none;
-  transition: all 0.2s ease;
-}
+  .btn-open-system {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #0284c7;
+    color: #ffffff !important;
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+  }
 
-/* 1. View Sheet Data Button (Dark) */
-.btn-view-sheet {
-  background-color: #1e293b;
-  color: #ffffff;
-}
+  .btn-open-system:hover {
+    background-color: #0369a1;
+  }
 
-.btn-view-sheet:hover {
-  background-color: #334155;
-}
+  /* Sheet Card Style Enhancement (मूळ २ बटन्स) */
+  .sheets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 15px;
+  }
 
-/* 2. Google Form Button (Orange) */
-.btn-open-form {
-  background-color: #e37b0d;
-  color: #ffffff !important;
-}
+  .sheet-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 14px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+  }
 
-.btn-open-form:hover {
-  background-color: #d9740b;
-}
+  .sheet-card-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
 
-/* Disabled Form Button (If Form link is not present) */
-.btn-disabled {
-  background-color: #cbd5e1;
-  color: #64748b !important;
-  cursor: not-allowed;
-}
-</style>
+  .sheet-card-title i {
+    font-size: 1.4rem;
+    color: #10b981;
+  }
+
+  .sheet-card-title h4 {
+    font-size: 0.95rem;
+    color: #1e293b;
+    margin: 0;
+    font-weight: 600;
+  }
+
+  .sheet-card-actions {
+    display: flex;
+    gap: 8px;
+  }
+
+  .btn-action {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-view-sheet {
+    background-color: #1e293b;
+    color: #ffffff;
+  }
+
+  .btn-view-sheet:hover {
+    background-color: #334155;
+  }
+
+  .btn-open-form {
+    background-color: #e37b0d;
+    color: #ffffff !important;
+  }
+
+  .btn-open-form:hover {
+    background-color: #d9740b;
+  }
+
+  .btn-disabled {
+    background-color: #cbd5e1;
+    color: #64748b !important;
+    cursor: not-allowed;
+  }
+  </style>
 </head>
 <body>
   <script>
@@ -129,7 +187,7 @@
             </li>
             <li>
               <a href="employee.html" class="nav-btn active">
-                <i class="fa-solid fa-users"></i> <span>Employees</span>
+                <i class="fa-solid fa-users"></i> <span>Team</span>
               </a>
             </li>
             <li>
@@ -156,10 +214,9 @@
       <section id="employee-view" class="content-view active">
         <header class="page-header flex-header">
           <div>
-            <h1>Employee Directory</h1>
+            <h1>Team Directory</h1>
             <div class="header-divider"></div>
           </div>
-          <!-- Live Employee Search -->
           <div class="search-box">
             <i class="fa-solid fa-magnifying-glass"></i>
             <input type="text" id="employee-search-input" placeholder="Search employee name or role...">
@@ -167,32 +224,34 @@
         </header>
 
         <div id="designation-groups-container">
-          <!-- Dynamic Employee Directory JavaScript द्वारे लोड होईल -->
+          <!-- Dynamic Directory -->
         </div>
       </section>
 
       <!-- 2. Employee Detailed Profile View -->
       <section id="profile-view" class="content-view">
         <button id="back-to-employees-btn" class="btn-secondary">
-          <i class="fa-solid fa-arrow-left"></i> Back to Employee List
+          <i class="fa-solid fa-arrow-left"></i> Back to Team List
         </button>
         
         <div class="profile-card-header">
           <img id="profile-img" src="https://via.placeholder.com/120" alt="Profile Image">
           <div class="profile-details">
-            <h1 id="profile-name">Employee Name</h1>
+            <h1 id="profile-name">Team Name</h1>
             <p><i class="fa-solid fa-briefcase"></i> <strong>Designation:</strong> <span id="profile-designation">-</span></p>
             <p><i class="fa-solid fa-calendar-day"></i> <strong>Joining Date:</strong> <span id="profile-joining">-</span></p>
             <p><i class="fa-solid fa-envelope"></i> <strong>Email ID:</strong> <span id="profile-email">-</span></p>
           </div>
         </div>
 
+        <!-- 📊 SPECIAL DASHBOARD BUTTON CARD -->
+       
+
         <div class="section-block">
           <h2>Assigned Worksheets</h2>
-          <p class="section-subtitle">Click on any card below to view live data filtered for this employee.</p>
-          <div id="employee-sheets-grid" class="sheets-grid">
-            <!-- Sheet Cards JS द्वारे लोड होतील -->
-          </div>
+          <p class="section-subtitle">Click on any card below to view live data filtered for this team.</p>
+          <div id="employee-sheets-grid" class="sheets-grid"></div>
+           <div id="profile-dashboard-container"></div>
         </div>
       </section>
 
@@ -210,7 +269,6 @@
         <button class="close-modal-btn" id="close-modal-x">&times;</button>
       </div>
 
-      <!-- Live Search Inside Table Modal -->
       <div class="modal-toolbar" id="modal-toolbar" style="display: none;">
         <div class="search-box table-search">
           <i class="fa-solid fa-filter"></i>
@@ -229,9 +287,7 @@
 
   <script src="script.js"></script>
   <script>
-    // Employee Page लोड झाल्यावर डेटा रेंडर करण्यासाठी
     document.addEventListener("DOMContentLoaded", function () {
-      // जर script.js मध्ये renderEmployees नावाचे फंक्शन असेल तर ते कॉल करा
       if (typeof renderEmployees === 'function') {
         renderEmployees();
       } else if (typeof initEmployeePage === 'function') {
@@ -243,7 +299,7 @@
       sessionStorage.removeItem('isLoggedIn');
       window.location.href = 'login.html';
     }
+    
   </script>
-  
 </body>
 </html>
